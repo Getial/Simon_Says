@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styleS.css">
+</head>
+<body>
+    <table class="tablero">
+        <tr>
+            <td class="mostrarNivel"><p id="mostrarNivel">Nivel   de </p></td>
+        </tr>
+        <tr height="150px">
+            <td width="20%" height="30%" id="cero" data-posicion='cero'></td>
+            <td width="20%" height="30%" id="uno" data-posicion='uno'></td>
+            <td width="20%" height="30%" id="dos" data-posicion='dos'></td>
+        </tr>
+        <tr height="150px">
+            <td width="20%" height="30%" id="tres" data-posicion='tres'></td>
+            <td width="20%" height="30%" id="cuatro" data-posicion='cuatro'></td>
+            <td width="20%" height="30%" id="cinco" data-posicion='cinco'></td>
+        </tr>
+        <tr height="150px">
+            <td width="20%" height="30%" id="seis" data-posicion='seis'></td>
+            <td width="20%" height="30%" id="siete" data-posicion='siete'></td>
+            <td width="20%" height="30%" id="ocho" data-posicion='ocho'></td>
+        </tr>
+    </table>
+    <div id="divFormulario" class="espacioFormulario">
+        <form class="formulario">
+            <label for="nombre">Nombre del jugador</label> <br>
+            <input type="text" class="entrada" name="nombre" id="nombre" placeholder="Ingrese su nombre"> <br>
+
+            <label for="niveles">Seleccionar numero de niveles</label> <br>
+            <input type="number" class="entrada" name="niveles" id="niveles">
+
+            <label for="niveles">Seleccionar nivel en el que quieres empezar</label> <br>
+            <input type="number" class="entrada" name="nivelInicial" id="nivelInicial" placeholder="1">
+
+            <label for="dificultad">Seleccionar dificultad</label> <br>
+            <select name="dificultad" class="entrada" id="dificultad">
+                <option value="facil">Facil</option>
+                <option value="normal">Normal</option>
+                <option value="dificil">Dificil</option>
+            </select>
+        </form> <br>
+        <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="eventos.js"></script>
+</body>
+</html>

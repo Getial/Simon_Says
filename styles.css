@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #34495e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+table{
+    max-width: 800px;
+    max-height: 500px;
+    /* border: 2px solid #cecece;  */
+    position: absolute;
+    top: 15vh;
+    left: 25vw;
+    table-layout: fixed;
+    align-items: center;
+    justify-content: center;
+}
+tr, td{
+    table-layout: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+tr{
+    padding-top: 10px;
+    color: white;
+}
+td{
+    width: 25vh;
+    height: 50%;
+    border: 2px solid whitesmoke;
+    border-radius: 15px;
+    margin: 10px;
+}
+.mostrarNivel{
+    border: 0px solid black;
+}
+.btn-start{
+    width: 300px;
+    height: 100px;
+    border-radius: 50px;
+    cursor: pointer;
+    background: #19d3da;
+    color: white;
+    font-size: 2rem;
+    position: relative;
+    top: 80vh;
+    left: 15vw;
+}
+.espacioFormulario{
+    width: 100%;
+    height: 100%;
+    background-color: #191919;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+} 
+.formulario{
+    width: 75vw;
+    height: 50vh;
+    position: absolute;
+    top: 12.5vh;
+    left: 12.5vw;
+}
+::placeholder {
+    color: #cecece;
+}
+label{
+    height: 15vh;
+    color: white;
+}
+.entrada{
+    background: none;
+    display: block; 
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 70vw;
+    height: 8vh;
+}
+.hide{
+    display: none;
+}
+.azul{
+    background-color: #11e0c4;
+}
+.rojo{
+    background-color: #ff414d;
+}
+@media screen and (max-width:850px){
+    table{
+        left: 22vw;
+    }
+}  
+@media screen and (max-width: 500px){
+    table{
+        width: 100%;
+        height: 100%;
+        left: 0;
+    }
+} 
