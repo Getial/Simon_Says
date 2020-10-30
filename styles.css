@@ -35,7 +35,54 @@ td{
 .mostrarNivel{
     border: 0px solid black;
 }
-.btn-start{
+/* .espacioFormulario{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+}  */
+.formulario{
+    width: 80vw;
+    height: 80vh;
+    padding-top: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #191919;
+    text-align: center;
+}
+::placeholder {
+    color: #cecece;
+}
+.formulario label{
+    text-align: center;
+    height: 15vh;
+    color: white;
+}
+.entrada{
+    border: 0;
+    background: none;
+    display: block; 
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 7px 5px;
+    width: 45vw;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    font-size: 16px;
+}
+.entrada:focus {
+    width: 60vw;
+    border-color: #2ecc71;
+}
+/* .btn-start{
     width: 300px;
     height: 100px;
     border-radius: 50px;
@@ -46,45 +93,27 @@ td{
     position: relative;
     top: 80vh;
     left: 15vw;
-}
-.espacioFormulario{
-    width: 100%;
-    height: 100%;
-    background-color: #191919;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-wrap: wrap;
-} 
-.formulario{
-    width: 75vw;
-    height: 50vh;
-    position: absolute;
-    top: 12.5vh;
-    left: 12.5vw;
-}
-::placeholder {
-    color: #cecece;
-}
-label{
-    height: 15vh;
-    color: white;
-}
-.entrada{
+} */
+#btnEmpezar {
+    border: 0;
     background: none;
-    display: block; 
     margin: 20px auto;
     text-align: center;
-    border: 2px solid #3498db;
-    padding: 14px 10px;
+    border: 2px solid #2ecc71;
+    padding: 7px 20px;
     outline: none;
     color: white;
     border-radius: 24px;
-    font-size: 16px;
-    margin-bottom: 20px;
-    width: 70vw;
-    height: 8vh;
+    transition: 0.25s;
+    font-size: 13px;
+    cursor: pointer;
+    width: 30vw;
+    height: 7vh;
+    position: relative;
+    top: 70vh;
+}
+#btnEmpezar:hover{
+    background: #2ecc71;
 }
 .hide{
     display: none;

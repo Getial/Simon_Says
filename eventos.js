@@ -7,7 +7,8 @@ const cinco = document.getElementById('cinco')
 const seis = document.getElementById('seis')
 const siete = document.getElementById('siete')
 const ocho = document.getElementById('ocho')
-const espacio = document.getElementById("divFormulario")
+const tabla = document.getElementById('tabla')
+const espacio = document.getElementById("formulario")
 const btnEmpezar = document.getElementById('btnEmpezar')
 var txtNivel = document.getElementById("mostrarNivel")
 //const ULTIMO_NIVEL = 10//document.getElementById('niveles').value
@@ -17,27 +18,27 @@ class Juego {
         this.inicializar = this.inicializar.bind(this)
         this.inicializar()
         this.generarSecuencia()
-        setTimeout(this.siguienteNivel, 500)
     }
 
     inicializar() {
+        //obtener niveles y nvieles inicial
         this.niveles = document.getElementById("niveles").value
         this.niveles = parseInt(this.niveles)
         this.nivelInicialTxt = document.getElementById("nivelInicial")
         this.nivelInicial = parseInt(this.nivelInicialTxt.value)
-
+        //obtener nombre y dificultad
         this.name = document.getElementById("nombre").value
         this.dificultad = document.getElementById("dificultad").value
-
+        //bindear funciones
         this.elegirColor = this.elegirColor.bind(this)
         this.siguienteNivel = this.siguienteNivel.bind(this)
-
+        //asignar el nivel inicial al nivel actual que es por donde va a arrancar
         this.nivel = this.nivelInicial || 1
         this.iluminar = 'azul'
 
         this.tiempoDificultad = this.definirDificultad(this.dificultad)
-        this.toggleBtnEmpezar()
         this.verificarNivelInicial()
+        this.toggleBtnEmpezar()
         this.numeros = {
             cero,
             uno,
@@ -59,16 +60,20 @@ class Juego {
                 this.eliminarEventosClick()
                 this.inicializar()
             })
+        } else {
+            setTimeout(this.siguienteNivel, 500)
         }
         
     }
     toggleBtnEmpezar() {
-        if(btnEmpezar.classList.contains('hide')) {
-            btnEmpezar.classList.remove('hide')
+        if(espacio.classList.contains('hide')) {
             espacio.classList.remove('hide')
+            btnEmpezar.classList.remove('hide')
+            tabla.classList.add('hide')
         } else{
-            btnEmpezar.classList.add('hide')
             espacio.classList.add('hide')
+            btnEmpezar.classList.add('hide')
+            tabla.classList.remove('hide')
         }
     }
     definirDificultad(strDif) {
@@ -81,10 +86,6 @@ class Juego {
                 return 350
         }
     }
-    // getName(){
-    //     var name = document.getElementById("nombre").value;
-    //     return name
-    // }
     generarSecuencia() {
         if(this.niveles) {
             this.secuencia = new Array(this.niveles).fill(0).map(n => Math.floor(Math.random() * 9))
@@ -225,3 +226,5 @@ class Juego {
 function empezarJuego() {
     juego = new Juego()
 }
+
+btnEmpezar.addEventListener("click", empezarJuego)

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styleS.css">
 </head>
 <body>
-    <table class="tablero">
+    <table class="tablero hide" id="tabla">
         <tr>
             <td class="mostrarNivel"><p id="mostrarNivel">Nivel   de </p></td>
         </tr>
@@ -27,8 +27,8 @@
             <td width="20%" height="30%" id="ocho" data-posicion='ocho'></td>
         </tr>
     </table>
-    <div id="divFormulario" class="espacioFormulario">
-        <form class="formulario">
+    <!-- <div id="divFormulario" class="espacioFormulario"> -->
+        <form class="formulario" id="formulario">
             <label for="nombre">Nombre del jugador</label> <br>
             <input type="text" class="entrada" name="nombre" id="nombre" placeholder="Ingrese su nombre"> <br>
 
@@ -45,8 +45,8 @@
                 <option value="dificil">Dificil</option>
             </select>
         </form> <br>
-        <button id="btnEmpezar" class="btn-start" onclick="empezarJuego()">Empezar a jugar!</button>
-    </div>
+        <button id="btnEmpezar" class="entrada">Empezar a jugar!</button>
+        <!-- </div> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script src="eventos.js"></script>
