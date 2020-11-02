@@ -17,26 +17,32 @@ var teclas ={
 function dibujar(ev) {
     if(ev.keyCode == teclas.LEFT)
     {
-        if(ancho >= 1)
+        disminuir()
+    }
+    if(ev.keyCode == teclas.RIGHT)
+    {
+        aumentar()
+    }
+}
+function disminuir(){
+    if(ancho >= 1)
         {
             ancho--
         } else {
             ancho = 0;
         }
         mostrar(ancho)
-    }
-    if(ev.keyCode == teclas.RIGHT)
-    {
-        if(ancho <= 99)
+}
+function aumentar(){
+    if(ancho <= 99)
         {
             ancho++
         } else {
             ancho = 100;
         }
         mostrar(ancho)
-    }
 }
+
 function mostrar(ancho) {
     barra.style.width = `${ancho}%`
 }
-
