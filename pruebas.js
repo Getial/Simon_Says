@@ -1,6 +1,10 @@
 const barra = document.getElementById("bar")
 document.addEventListener("keydown", dibujar)
 
+barra.style.height = '20px'
+barra.style.width = '50%'
+barra.style.background = '#000'
+var ancho = parseInt(barra.style.width)
 
 var teclas ={
     UP:38,
@@ -9,23 +13,30 @@ var teclas ={
     RIGHT:39
 }
 
-barra.style.height = '20px'
-barra.style.width = '50%'
-barra.style.background = '#000'
-var ancho = parseInt(barra.style.width)
 
 function dibujar(ev) {
     if(ev.keyCode == teclas.LEFT)
     {
-        ancho--
+        if(ancho >= 1)
+        {
+            ancho--
+        } else {
+            ancho = 0;
+        }
         mostrar(ancho)
     }
     if(ev.keyCode == teclas.RIGHT)
     {
-        ancho++
+        if(ancho <= 99)
+        {
+            ancho++
+        } else {
+            ancho = 100;
+        }
         mostrar(ancho)
     }
 }
 function mostrar(ancho) {
     barra.style.width = `${ancho}%`
 }
+
