@@ -17,9 +17,9 @@ class Juego {
     constructor () {
         this.inicializar = this.inicializar.bind(this)
         this.inicializar()
-        this.generarSecuencia()
+        setTimeout(this.siguienteNivel, 500)
     }
-
+    
     inicializar() {
         //obtener niveles y nvieles inicial
         this.niveles = document.getElementById("niveles").value
@@ -33,6 +33,7 @@ class Juego {
         this.elegirColor = this.elegirColor.bind(this)
         this.siguienteNivel = this.siguienteNivel.bind(this)
         //asignar el nivel inicial al nivel actual que es por donde va a arrancar
+        this.generarSecuencia()
         this.nivel = this.nivelInicial || 1
         this.iluminar = 'azul'
 
@@ -60,9 +61,7 @@ class Juego {
                 this.eliminarEventosClick()
                 this.inicializar()
             })
-        } else {
-            setTimeout(this.siguienteNivel, 500)
-        }
+        } 
         
     }
     toggleBtnEmpezar() {
