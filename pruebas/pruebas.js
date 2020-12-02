@@ -1,6 +1,6 @@
 const barra = document.getElementById("bar")
 const btnDetener = document.getElementById("detener")
-btnDetener.addEventListener("click", detener)
+btnDetener.addEventListener("click", togglePlay)
 //document.addEventListener("keydown", dibujar)
 
 barra.style.height = '20px'
@@ -9,6 +9,7 @@ barra.style.background = '#000'
 var ancho = parseInt(barra.style.width)
 var intervaloDisminuir
 var intervaloAumentar
+var run
 
 // var teclas ={
 //     UP:38,
@@ -28,24 +29,26 @@ var intervaloAumentar
 //     }
 // }
 function disminuir(){
+    run = 1
     if(ancho >= 1)
         {
             ancho--
         } else {
             clearInterval(intervaloDisminuir)
-            intervaloAumentar = setInterval(aumentar, 100)
             ancho = 0;
+            intervaloAumentar = setInterval(aumentar, 10)
         }
         mostrar(ancho)
 }
 function aumentar(){
+    run = 2
     if(ancho <= 99)
         {
             ancho++
         } else {
             clearInterval(intervaloAumentar)
-            intervaloDisminuir = setInterval(disminuir, 100)
             ancho = 100;
+            intervaloDisminuir = setInterval(disminuir, 10)
         }
         mostrar(ancho)
 }
@@ -53,9 +56,19 @@ function aumentar(){
 function mostrar(ancho) {
     barra.style.width = `${ancho}%`
 }
-function detener(){
-    clearInterval(intervaloAumentar)
-    clearInterval(intervaloDisminuir)
+function togglePlay(){
+    if(run === 1)
+    {
+        clearInterval(intervaloDisminuir)
+        run = 3;
+    }else if(run === 2){
+        clearInterval(intervaloAumentar)
+        run = 4;
+    }else if(run === 3){
+        intervaloDisminuir = setInterval(disminuir, 100)
+    }else if(run ===4){
+        intervaloAumentar = setInterval(aumentar, 10)
+    }
 }
 
 intervaloDisminuir = setInterval(disminuir, 100)
