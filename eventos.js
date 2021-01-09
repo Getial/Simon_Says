@@ -10,6 +10,7 @@ const ocho = document.getElementById("ocho");
 const tabla = document.getElementById("tabla");
 const espacio = document.getElementById("formulario");
 const btnEmpezar = document.getElementById("btnEmpezar");
+const barra = document.getElementById("barra");
 var txtNivel = document.getElementById("mostrarNivel");
 //const ULTIMO_NIVEL = 10//document.getElementById('niveles').value
 
@@ -89,7 +90,6 @@ class Juego {
     }
   }
   generarSecuencia() {
-    console.log(this.niveles);
     if (this.niveles) {
       console.log("entro hacer la secuencia");
       this.secuencia = new Array(this.niveles)
@@ -115,11 +115,14 @@ class Juego {
       }
   }
   siguienteNivel() {
-    txtNivel.innerHTML = `Nivel ${this.nivel} de ${this.niveles}`;
-    this.subnivel = 0;
-    this.iluminar = "azul";
-    this.eliminarEventosClick();
-    this.iluminarSecuencia();
+    barra.style.width = "0%";
+    setTimeout(() => {
+      txtNivel.innerHTML = `Nivel ${this.nivel} de ${this.niveles}`;
+      this.subnivel = 0;
+      this.iluminar = "azul";
+      this.eliminarEventosClick();
+      this.iluminarSecuencia();
+    }, 500);
   }
   transformarNumeroAString(numero) {
     switch (numero) {
@@ -219,13 +222,16 @@ class Juego {
     this.iluminarPosicion(strPosicion);
     if (numeroPosicion === this.secuencia[this.subnivel]) {
       this.subnivel++;
+      this.porcentaje = 100 / this.nivel;
+      this.ancho = this.porcentaje * this.subnivel;
+      barra.style.width = `${this.ancho}%`;
       if (this.subnivel === this.nivel) {
         this.nivel++;
         this.eliminarEventosClick();
         if (this.nivel === this.niveles + 1) {
           this.ganoElJuego();
         } else {
-          setTimeout(this.siguienteNivel, 1500);
+          setTimeout(this.siguienteNivel, 1000);
         }
       }
     } else {

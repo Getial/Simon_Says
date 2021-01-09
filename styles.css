@@ -6,17 +6,27 @@
 body {
     background: #34495e;
     font-family: Arial, Helvetica, sans-serif;
+    width: 100vw;
+    height: 100vh;
 }
 table{
     max-width: 800px;
-    max-height: 500px;
+    max-height: 90vh;
     /* border: 2px solid #cecece;  */
     position: absolute;
-    top: 15vh;
+    top: 7vh;
     left: 25vw;
     table-layout: fixed;
     align-items: center;
     justify-content: center;
+}
+.mostrarNivel{
+  border: 0px solid black;
+}
+table tr .joker {
+  width: 100%;
+  height: 4vh;
+  border: none;
 }
 tr, td{
     table-layout: fixed;
@@ -25,18 +35,30 @@ tr, td{
     justify-content: space-around;
 }
 tr{
-    padding-top: 10px;
+    padding-top: 1vh;
     color: white;
 }
 td{
     width: 25vh;
-    height: 50%;
+    height: 40%;
     border: 2px solid whitesmoke;
     border-radius: 15px;
-    margin: 10px;
+    margin: 0 10px;
 }
-.mostrarNivel{
-    border: 0px solid black;
+table tr .avance {
+  width: 100%;
+  height: 2vh;
+  border: 1px solid white;
+  /* align-items: center;
+  justify-content: flex-start; */
+}
+table tr .barra_avance {
+  height: 1vh;
+  margin: 2px;
+  border-radius: 15px;
+  background-color: #2ecc71;
+  transition: width 200ms;
+  -webkit-transition: width 200ms;
 }
 /* .espacioFormulario{
     width: 100%;
@@ -74,7 +96,7 @@ td{
     text-align: center;
     border: 2px solid #3498db;
     padding: 7px 5px;
-    width: 45vw;
+    width: 40vw;
     outline: none;
     color: white;
     border-radius: 24px;
@@ -83,7 +105,7 @@ td{
 }
 .entrada:focus {
     width: 60vw;
-    border-color: #2ecc71;
+    border-color: #62aa80;
 }
 /* .btn-start{
     width: 300px;
