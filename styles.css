@@ -12,7 +12,6 @@ body {
 table{
     max-width: 800px;
     max-height: 90vh;
-    /* border: 2px solid #cecece;  */
     position: absolute;
     top: 7vh;
     left: 25vw;
@@ -49,8 +48,6 @@ table tr .avance {
   width: 100%;
   height: 2vh;
   border: 1px solid white;
-  /* align-items: center;
-  justify-content: flex-start; */
 }
 table tr .barra_avance {
   height: 1vh;
@@ -60,15 +57,6 @@ table tr .barra_avance {
   transition: width 200ms;
   -webkit-transition: width 200ms;
 }
-/* .espacioFormulario{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-wrap: wrap;
-}  */
 .formulario{
     width: 80vw;
     height: 80vh;
@@ -88,7 +76,8 @@ table tr .barra_avance {
     height: 15vh;
     color: white;
 }
-.entrada{
+.entrada,
+.dificultad{
     border: 0;
     background: none;
     display: block; 
@@ -103,22 +92,13 @@ table tr .barra_avance {
     transition: 0.25s;
     font-size: 16px;
 }
+.dificultad:focus {
+  border-color: #62aa80;
+}
 .entrada:focus {
     width: 60vw;
     border-color: #62aa80;
 }
-/* .btn-start{
-    width: 300px;
-    height: 100px;
-    border-radius: 50px;
-    cursor: pointer;
-    background: #19d3da;
-    color: white;
-    font-size: 2rem;
-    position: relative;
-    top: 80vh;
-    left: 15vw;
-} */
 #btnEmpezar {
     border: 0;
     background: none;

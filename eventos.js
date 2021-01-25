@@ -24,10 +24,10 @@ class Juego {
 
   inicializar() {
     //obtener niveles y nvieles inicial
-    this.niveles = document.getElementById("niveles").value;
-    this.niveles = parseInt(this.niveles);
     this.nivelInicialTxt = document.getElementById("nivelInicial");
     this.nivelInicial = parseInt(this.nivelInicialTxt.value);
+    this.nivelesTxt = document.getElementById("niveles").value;
+    this.niveles = parseInt(this.nivelesTxt) || this.nivelInicial + 50 || 50;
     //obtener nombre y dificultad
     this.name = document.getElementById("nombre").value;
     this.dificultad = document.getElementById("dificultad").value;
@@ -90,34 +90,18 @@ class Juego {
     }
   }
   generarSecuencia() {
-    if (this.niveles) {
-      console.log("entro hacer la secuencia");
-      this.secuencia = new Array(this.niveles)
-        .fill(0)
-        .map((n) => Math.floor(Math.random() * 9));
-    } else {
-      this.flag++;
-      this.definirNiveles();
-    }
-  }
-  definirNiveles () {
-    console.log("entro a definir niveles");
-    if(this.flag === 1) {
-      swal(
-        "Hey", 
-        "debes definir el numero de niveles", 
-        "error"
-        ).then(() => {
-          console.log("entro al then de definir niveles");
-          this.inicializar();
-          this.eliminarEventosClick();
-        });
-      }
+    this.secuencia = new Array(this.niveles)
+      .fill(0)
+      .map((n) => Math.floor(Math.random() * 9));
   }
   siguienteNivel() {
     barra.style.width = "0%";
-    setTimeout(() => {
+    if(this.nivelesTxt) {
       txtNivel.innerHTML = `Nivel ${this.nivel} de ${this.niveles}`;
+    } else {
+      txtNivel.innerHTML = `Nivel ${this.nivel} de ∞`;
+    }
+    setTimeout(() => {
       this.subnivel = 0;
       this.iluminar = "azul";
       this.eliminarEventosClick();
@@ -241,14 +225,14 @@ class Juego {
   ganoElJuego() {
     swal(
       "HEY!",
-      `Felicitaciones ${this.name}, ganaste el juego`,
+      `Felicitaciones ${this.name} ganaste el juego`,
       "success"
     ).then(this.inicializar);
   }
   perdioElJuego() {
     swal(
       "Ups!", 
-      `Lo lamento ${this.name}, perdiste`, 
+      `Lo lamento ${this.name} perdiste en el nivel ${this.nivel}`, 
       "error"
       ).then(() => {
       this.eliminarEventosClick();
